@@ -1,6 +1,20 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 String myString = "";
+
+
+class SportCar extends AbstractCar {
+  double turbo = 1.5;
+
+
+  @override
+  void toPrint() {
+    print("Машина $name со скоростью $speed км/ч ускорение равно $turbo");
+
+  }
+}
 
 
 class AbstractCar{
@@ -185,16 +199,48 @@ void main(){
 
 class SecondScreen extends StatelessWidget {
 
-
   @override
   Widget build(BuildContext context) {
-     main();
+
+
      double width = MediaQuery.of(context).size.width;
      if (width > 420) {
        return Scaffold(
          appBar: AppBar(title: Text("Заголовок экрана")),
-         body: Center(child: SingleChildScrollView(child: Text(myString,
-           style: TextStyle(fontSize: 24),)),),
+         body: Row(
+           children: [
+             Expanded( flex: 2,
+               child: Text(myString,
+                 style: TextStyle(fontSize: 24),),
+             ),
+             Expanded( flex: 3,
+
+                 child: Container( color:  Colors.green,)),
+             Container(width: width*0.2 , color: Colors.redAccent,
+               child: Column(
+                 children: [
+                   SizedBox(height: 30,),
+                   Padding(
+                     padding: const EdgeInsets.all(15.0),
+                     child: Text("Страница1"),
+                   ),
+                   Padding(
+                     padding: const EdgeInsets.all(15.0),
+                     child: Text("Страница2"),
+                   ),
+                   Padding(
+                     padding: const EdgeInsets.all(15.0),
+                     child: Text("Страница3"),
+                   ),
+                   Padding(
+                     padding: const EdgeInsets.all(15.0),
+                     child: Text("Страница4"),
+                   ),
+                 ],
+               ),
+             )
+           ],
+         ),
        );
      } else {
        return Scaffold(
