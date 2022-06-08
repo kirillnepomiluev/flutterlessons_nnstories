@@ -50,6 +50,4 @@ class _FirstScreenState extends State<FirstScreen> {
           return NewsWidget(newsModel: newsModelList[index]);
         },);
   }
-
-
 }

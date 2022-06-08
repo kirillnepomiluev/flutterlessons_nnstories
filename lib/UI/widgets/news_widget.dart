@@ -26,7 +26,7 @@ class NewsWidget extends StatelessWidget {
          children: [
             Text (newsModel.title),
             Expanded(child: Card(child: Image.network(newsModel.photoURL),)),
-           Text (newsModel.text),
+           Expanded(child: Text (newsModel.text)),
          ],
        ),
      );
