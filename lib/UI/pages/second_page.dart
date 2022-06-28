@@ -10,7 +10,7 @@ class SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MyScaffold(title: title, body: buildBody(context), );
+    return  buildBody(context);
   }
 
   buildBody(BuildContext context) {

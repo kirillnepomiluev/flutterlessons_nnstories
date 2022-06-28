@@ -11,14 +11,14 @@ import '../../data/models/news_model.dart';
 
 
 
-class FirstScreen extends StatefulWidget {
-  static const String  title=  "Страница 1";
+class LoginPage extends StatefulWidget {
+  static const String  title=  "Login";
 
   @override
-  State<FirstScreen> createState() => _FirstScreenState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _FirstScreenState extends State<FirstScreen> {
+class _LoginPageState extends State<LoginPage> {
   List<NewsModel> newsModelList = [];
 
   Future<void> getNewsFromDB() async {
@@ -38,16 +38,13 @@ class _FirstScreenState extends State<FirstScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return  buildBody(context);
+    return buildBody(context);
   }
 
- Widget buildBody(BuildContext context) {
-    return newsModelList.isEmpty?
-    Center( child: CircularProgressIndicator(),)
-        :
-        ListView.builder( itemCount: newsModelList.length,
-          itemBuilder: (BuildContext context, int index) {
-          return NewsWidget(newsModel: newsModelList[index]);
-        },);
+  Widget buildBody(BuildContext context) {
+    return Column(children: [
+      Text('login'),
+      Text('password')
+    ],);
   }
 }

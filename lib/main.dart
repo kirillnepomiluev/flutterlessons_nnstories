@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nnstories_lesson/UI/pages/first_screen.dart';
+import 'package:nnstories_lesson/UI/widgets/my_scaffold.dart';
 
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: FirstScreen(),
+      home: MyScaffold(),
     );
   }
 }

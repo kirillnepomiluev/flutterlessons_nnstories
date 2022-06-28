@@ -4,52 +4,52 @@ import 'package:nnstories_lesson/UI/pages/forsth_page.dart';
 import 'package:nnstories_lesson/UI/pages/second_page.dart';
 import 'package:nnstories_lesson/UI/pages/third_page.dart';
 
-Widget buildMenu(BuildContext context, {width = 200}) {
-  return Container(
-    width: width,
-    color: Colors.redAccent,
-    child: Column(
-      children: [
-        SizedBox(
-          height: 70,
-        ),
-        ListTile(
-          title: Text("Страница1"),
-          onTap: () {
-            Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (BuildContext context) {
-                  return FirstScreen();
-                }));
-          },
-        ),
-        ListTile(
-          title: Text("Страница2"),
-          onTap: () {
-            Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (BuildContext context) {
-                  return SecondPage();
-                }));
-          },
-        ),
-        ListTile(
-          title: Text("Страница3"),
-          onTap: () {
-            Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (BuildContext context) {
-                  return ThirdPage();
-                }));
-          },
-        ),
-        ListTile(
-          title: Text("Страница4"),
-          onTap: () {
-            Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (BuildContext context) {
-                  return FourthPage();
-                }));
-          },
-        ),
-      ],
-    ),
-  );
+class MenuDrawerWidget extends StatelessWidget {
+  final  Function (int index) onTileTap;
+  final double width;
+  MenuDrawerWidget(this.onTileTap, {Key? key, this.width = 200}) : super(key: key);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      color: Colors.redAccent,
+      child: Column(
+        children: [
+          SizedBox(
+            height: 70,
+          ),
+          ListTile(
+            title: Text("Новости"),
+            onTap: ()  { onTileTap(0);
+            Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text("Страница2"),
+            onTap: ()  { onTileTap(1);
+            Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: Text("Страница3"),
+            onTap: ()  { onTileTap(2);
+            Navigator.pop(context);
+            },
+
+          ),
+          ListTile(
+            title: Text("Страница4"),
+            onTap: ()  { onTileTap(3);
+            Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
 }
+
+
