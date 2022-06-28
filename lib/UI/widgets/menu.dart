@@ -23,26 +23,34 @@ class MenuDrawerWidget extends StatelessWidget {
           ListTile(
             title: Text("Новости"),
             onTap: ()  { onTileTap(0);
-            Navigator.pop(context);
+            if (Scaffold.of(context).isEndDrawerOpen) {
+              Navigator.pop(context);
+            }
             },
           ),
           ListTile(
             title: Text("Страница2"),
             onTap: ()  { onTileTap(1);
-            Navigator.pop(context);
+            if (Scaffold.of(context).isEndDrawerOpen) {
+              Navigator.pop(context);
+            }
             },
           ),
           ListTile(
             title: Text("Страница3"),
             onTap: ()  { onTileTap(2);
-            Navigator.pop(context);
+            if (Scaffold.of(context).isEndDrawerOpen) {
+              Navigator.pop(context);
+            }
             },
 
           ),
           ListTile(
             title: Text("Страница4"),
             onTap: ()  { onTileTap(3);
-            Navigator.pop(context);
+            if (Scaffold.of(context).isEndDrawerOpen) {
+              Navigator.pop(context);
+            }
             },
           ),
         ],

@@ -25,8 +25,8 @@ class NewsWidget extends StatelessWidget {
        child: Column( crossAxisAlignment: CrossAxisAlignment.stretch,
          children: [
             Text (newsModel.title),
-            Expanded(child: Card(child: Image.network(newsModel.photoURL),)),
-           Expanded(child: Text (newsModel.text)),
+            Expanded(child: Card(child: Image.network(newsModel.photoURL,),)),
+           Expanded(child: SingleChildScrollView(child: Text (newsModel.text))),
          ],
        ),
      );

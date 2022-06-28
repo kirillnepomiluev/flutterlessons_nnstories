@@ -34,26 +34,42 @@ class _MyScaffoldState extends State<MyScaffold> {
   onMenuTap(int value) {
 
     setState(() {
-      body = null;
-      _title = null;
-      _currentIndex = value;
+      switch (value) {
+        case 0:
+          body = FirstScreen();
+          _title = "Новости";
+          break;
+        case 1:
+          body = SecondPage();
+          _title = "Страница 2";
+          break;
+        case 2:
+          body = ThirdPage();
+          _title = "Страница 3";
+          break;
+        case 3:
+          body = FourthPage();
+          _title = "Страница 4";
+          break;
+      }
+
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> pages = [
-      FirstScreen(),
-      FourthPage(),
-      SecondPage(),
-      ThirdPage()
-    ];
-    List<String> pagesTitles = [
-      "Новости",
-      "Страница 2",
-      "Страница 3",
-      "Страница 4",
-    ];
+    // List<Widget> pages = [
+    //   FirstScreen(),
+    //   FourthPage(),
+    //   SecondPage(),
+    //   ThirdPage()
+    // ];
+    // List<String> pagesTitles = [
+    //   "Новости",
+    //   "Страница 2",
+    //   "Страница 3",
+    //   "Страница 4",
+    // ];
 
     List<BottomNavigationBarItem> items = [
       BottomNavigationBarItem(icon: Icon(Icons.amp_stories), label: 'Лента'),
@@ -68,24 +84,24 @@ class _MyScaffoldState extends State<MyScaffold> {
     double width = MediaQuery.of(context).size.width;
     if (width > 420) {
       return Scaffold(
-        appBar: AppBar(title: Text(_title ?? pagesTitles[_currentIndex])),
+        appBar: AppBar(title: Text(_title?? "")),
         body: Row(
           children: [
             Expanded(
               child: Text(
-                widget.title,
+                _title?? "",
                 style: TextStyle(fontSize: 24),
               ),
             ),
-            Expanded(flex: 3, child: body ?? pages[_currentIndex]),
-            MenuDrawerWidget(onMenuTap),
+            Expanded(flex: 3, child: body?? Container() ),
+            MenuDrawerWidget(onMenuTap, width: width * 0.2 ,),
           ],
         ),
       );
     } else {
       return Scaffold(
         appBar: AppBar(
-          title: Text(_title?? pagesTitles[_currentIndex]),
+          title: Text(_title?? ""),
           actions: [
             IconButton(
               icon: Icon(Icons.login),
@@ -100,8 +116,8 @@ class _MyScaffoldState extends State<MyScaffold> {
           ],
         ),
         drawerEdgeDragWidth: width * 0.7,
-        endDrawer: MenuDrawerWidget(onMenuTap),
-        body:  body?? pages[_currentIndex],
+        endDrawer: MenuDrawerWidget(onMenuTap, width:  width * 0.7,),
+        body: body?? Container(),
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: _currentIndex,
             showUnselectedLabels: true,
